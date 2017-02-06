@@ -1,0 +1,134 @@
+<html>
+<head>
+    <meta HTTP-EQUIV="X-UA-COMPATIBLE" CONTENT="IE=EmulateIE9" >
+    <script type="text/javascript" src="scripts/d3.min.js"></script>
+    <script type="text/javascript" src="scripts/radialProgress.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+<div id="outer" style="margin-top:40px; padding:10px">
+    <div id="main">
+		
+		<a id="opener"><div id="div1"></div></a>
+		<a id="opener2"><div id="div2"></div></a>
+		<a id="opener3"><div id="div3"></div></a>
+    </div>
+    
+	<div id="dialog" title="Skill 1">
+		<p>Description of Skill 1</p>
+	</div>
+	
+	<div id="dialog2" title="Skill 2">
+		<p>Description of Skill 2</p>
+	</div>
+	
+	<div id="dialog3" title="Skill 3">
+		<p>Description of Skill 3</p>
+	</div>
+</div>
+
+
+
+<script language="JavaScript">
+
+    var div1=d3.select(document.getElementById('div1'));
+    var div2=d3.select(document.getElementById('div2'));
+    var div3=d3.select(document.getElementById('div3'));
+    var div4=d3.select(document.getElementById('div4'));
+
+    start();
+
+    function labelFunction(val,min,max) {
+
+    }
+
+    function deselect() {
+        div1.attr("class","radial");
+        div2.attr("class","radial");
+        div3.attr("class","radial");
+    }
+
+    function start() {
+
+        var rp1 = radialProgress(document.getElementById('div1'))
+                .label("Skill 1")
+                .diameter(150)
+                .value(80)
+                .render();
+
+        var rp2 = radialProgress(document.getElementById('div2'))
+                .label("Skill 2")
+                .diameter(150)
+                .value(95)
+                .render();
+
+        var rp3 = radialProgress(document.getElementById('div3'))
+                .label("Skill 3")
+                .diameter(150)
+                .value(85)
+                .render();
+
+    }
+	
+	$( function() {
+	$( "#dialog" ).dialog({
+	  autoOpen: false,
+	  show: {
+		effect: "fade",
+		duration: 400
+	  },
+	  hide: {
+		effect: "fade",
+		duration: 400
+	  }
+	});
+
+	$( "#opener" ).on( "click", function() {
+	  $( "#dialog" ).dialog( "open" );
+	});
+	} );
+	
+	$( function() {
+	$( "#dialog2" ).dialog({
+	  autoOpen: false,
+	  show: {
+		effect: "fade",
+		duration: 400
+	  },
+	  hide: {
+		effect: "fade",
+		duration: 400
+	  }
+	});
+
+	$( "#opener2" ).on( "click", function() {
+	  $( "#dialog2" ).dialog( "open" );
+	});
+	} );
+	
+	$( function() {
+	$( "#dialog3" ).dialog({
+	  autoOpen: false,
+	  show: {
+		effect: "fade",
+		duration: 400
+	  },
+	  hide: {
+		effect: "fade",
+		duration: 400
+	  }
+	});
+
+	$( "#opener3" ).on( "click", function() {
+	  $( "#dialog3" ).dialog( "open" );
+	});
+	} );
+</script>
+
+</body>
+</html>
